@@ -1,0 +1,11 @@
+@mixin font(
+    $family: var(--font-body),
+    $size: var(--body-font-size),
+    $weight: 400,
+    $line-height: $body-line-height
+) {
+    font-family: $family;
+    font-size: $size;
+    font-weight: $weight;
+    line-height: $line-height;
+}

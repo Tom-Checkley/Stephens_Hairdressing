@@ -1,0 +1,26 @@
+:root {
+    --f1:                   #{rem($f1)};
+    --f2:                   #{rem($f2)};
+    --f3:                   #{rem($f3)};
+    --f4:                   #{rem($f4)};
+    --f5:                   #{rem($f5)};
+    --f6:                   #{rem($f6)};
+
+    --body-font-size:       #{rem($body-font-size)};
+    --font-body:            #{$body-font};
+    --font-heading:         #{$heading-font};
+
+    --s1:                   #{rem($s1)};
+    --s2:                   #{rem($s2)};
+    --s3:                   #{rem($s3)};
+    --s4:                   #{rem($s4)};
+    --s5:                   #{rem($s5)};
+    --s6:                   #{rem($s6)};
+    --s7:                   #{rem($s7)};
+
+    --c-white:          #{$c-white};
+    --c-black:          #{$c-balck};
+    --c-greyLight:      #{$c-greyLight};
+    --c-green:          #{$c-green};
+    --c-burgendy:       #{$c-burgendy};
+}

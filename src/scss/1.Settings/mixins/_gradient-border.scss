@@ -1,0 +1,19 @@
+@mixin gradient-border($width, $animation, $direction: forward, $top: false, $left: false, $bottom: false, $right: false) {
+    border-image: conic-gradient(from var(--angle), var(--c-red), var(--c-orange), var(--c-yellow), var(--c-orange), var(--c-red)) 1;
+    border-width: rem($width);
+    border-style: solid;
+    @if not $top {
+        border-color: transparent;
+    }
+    @if not $right {
+        border-color: transparent;
+    }
+    @if not $bottom {
+        border-color: transparent;
+    }
+    @if not $left {
+        border-color: transparent;
+    }
+    animation: 3s $animation linear infinite $direction;
+}
+

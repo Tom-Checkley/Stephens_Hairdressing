@@ -1,0 +1,42 @@
+// Colour pallete
+$c-balck:           #1d1d1e;
+$c-white:           #fff;
+$c-greyLight:       #f2f2f2;
+$c-burgendy:        #7A3448;
+$c-green:           #3A585D;
+
+// Font
+$f1:                14;
+$f2:                16;
+$f3:                18;
+$f4:                20;
+$f5:                24;
+$f6:                36;
+
+$base-font-size:    $f2;
+$body-font-size:    $f3;
+$body-line-height:  1.3;
+
+$body-font:         'open_sans_condensedlight', sans-serif;
+$heading-font:      'open_sans_condensedbold', sans-serif;
+
+// Spacing
+$s1:               .5 * $body-font-size;
+$s2:               .75 * $body-font-size;
+$s3:                1 * $body-font-size;
+$s4:                1.5 * $body-font-size;
+$s5:                2 * $body-font-size;
+$s6:                2.5 * $body-font-size;
+$s7:                4 * $body-font-size;
+
+
+// Breakpoints
+$bp-smallest:		              340 !default;
+$bp-small:			              480 !default;
+$bp-med:		                  670 !default;
+$bp-medLg:			              850 !default;
+$bp-large:			              1024 !default;
+$bp-larger:			              1400 !default;
+$bp-largest:		              1700 !default;
+
+$max-width:			              1200 !default;

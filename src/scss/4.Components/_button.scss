@@ -1,0 +1,34 @@
+.button {
+    display: inline-block;
+    appearance: none;
+    border: none;
+    background-color: inherit;
+    font-weight: 700;
+    padding: 0;
+
+    &:hover,
+    &:focus-visible {
+        outline: none;
+    }
+}
+
+.button__body {
+    padding: var(--s1) var(--s4);
+    transition: all 0.3s linear;
+    width: 100%;
+    height: 100%;
+}
+
+.button--primary {
+    .button__body {
+        background: var(--c-green);
+        color: var(--c-white);
+    }
+
+    &:hover,
+    &:focus-visible {
+        .button__body {
+            background-color: var(--c-burgendy);
+        }
+    }
+}

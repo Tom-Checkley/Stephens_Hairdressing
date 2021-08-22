@@ -1,0 +1,10 @@
+.wrapper {
+    padding: var(--s6);
+    width: calc(100% - (var(--s4) * 2));
+    max-width: rem($max-width);
+    margin: 0 var(--s4);
+
+    @include media($max-width) {
+        margin: 0 auto;
+    }
+}
