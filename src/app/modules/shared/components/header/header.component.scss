@@ -1,0 +1,15 @@
+.header {
+    color: var(--c-white);
+    background-color: var(--c-green);
+    border-bottom: 8px solid var(--c-burgendy);
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+
+    &:hover,
+    &:focus {
+        text-decoration: underline;
+    }
+}

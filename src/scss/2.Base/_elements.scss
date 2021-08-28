@@ -9,10 +9,6 @@ body {
     background-color: var(--c-greyLight);
 }
 
-header {
-    border-bottom: 8px solid var(--c-burgendy);
-}
-
 main {
     font-size: var(--f4);
     background-color: var(--c-white);
@@ -21,4 +17,22 @@ main {
 
 img {
     max-width: 100%;
+}
+
+form {
+    max-width: rem(600);
+    margin: 0 auto;
+}
+
+label {
+    line-height: 1;
+}
+
+input {
+    display: block;
+    width: 100%;
+    padding: var(--s1) var(--s2);
+    border-radius: 0;
+    border: 1px solid var(--c-black);
+    font-size: var(--f2);
 }
