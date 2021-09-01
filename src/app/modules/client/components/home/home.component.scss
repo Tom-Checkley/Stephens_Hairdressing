@@ -1,0 +1,32 @@
+@import '/src/scss/1.Settings/_index';
+
+.content {
+    display: grid;
+    gap: var(--s4) var(--s6);
+    text-align: center;
+
+    aside {
+        display: none;
+    }
+
+    @include media($bp-medLg) {
+        grid-template-columns: minmax(rem(200), rem(350)) minmax(rem(350), 1fr);
+
+        header {
+            grid-column: 1 / -1;
+            text-align: center;
+        }
+    }
+
+    @include media($bp-large) {
+        grid-template-columns:rem(200) minmax(rem(200), rem(350)) minmax(rem(350), 1fr);
+
+        
+
+        aside {
+            display: block;
+            height: 100%;
+        }
+    }
+
+}

@@ -7,6 +7,7 @@ import { DashboardNavComponent } from './components/dashboard-nav/dashboard-nav.
 import { DashboardLandingComponent } from './components/dashboard-landing/dashboard-landing.component';
 import { EditOpeningHoursComponent } from './components/edit-opening-hours/edit-opening-hours.component';
 import { EditPricesComponent } from './components/edit-prices/edit-prices.component';
+import { FormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -19,6 +20,7 @@ import { EditPricesComponent } from './components/edit-prices/edit-prices.compon
   ],
   imports: [
     CommonModule,
+    FormsModule,
     DashboardRoutingModule
   ]
 })

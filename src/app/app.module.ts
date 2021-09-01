@@ -6,15 +6,17 @@ import { environment } from 'src/environments/environment';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { SharedModule } from './modules/shared/shared.module';
+import { ClientModule } from './modules/client/client.module';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     SharedModule,
+    ClientModule,
 
     AngularFireModule.initializeApp(environment.firebaseConfig),
   ],

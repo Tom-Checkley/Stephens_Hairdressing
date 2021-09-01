@@ -1,1 +1,52 @@
-<p>edit-opening-hours works!</p>
+<form action="" class="flow-4" (ngSubmit)="editOpeningHours()">
+    <h2>Opening hours</h2>
+    <table *ngIf="openingHours">
+        <thead>
+            <th scope="col">Day</th>
+            <th scope="col">Opening time</th>
+            <th scope="col">Closing time</th>
+            <th scope="col">Closed all day</th>
+        </thead>
+        <tr *ngFor="let day of openingHours">
+            <th scope="row"><strong>{{ day.day }}</strong></th>
+            <td>
+                <label class="vh" [for]="'open' + day.day">Opening time</label>
+                <input
+                    type="text"
+                    placeholder="open"
+                    [id]="'open' + day.day"
+                    [name]="'open' + day.day"
+                    [(ngModel)]="day.open"
+                />
+            </td>
+            <td>
+                <label class="vh" [for]="'close' + day.day">Closing time</label>
+                <input
+                    type="text"
+                    placeholder="close"
+                    [id]="'close' + day.day"
+                    [name]="'close' + day.day"
+                    [(ngModel)]="day.close"
+                    [required]="!day.closed"
+                />
+            </td>
+            <td>
+                <label class="vh" [for]="'closed' + day.day" class="checkbox">
+                    <input
+                        id="monClosed"
+                        type="checkbox"
+                        class="vh"
+                        [name]="'closed' + day.day"
+                        [(ngModel)]="day.closed"
+                        [required]="!day.closed"
+                    />
+                    <span>Closed all day</span>
+                </label>
+            </td>
+        </tr>
+        
+    </table>
+    <button class="button button--primary" type="submit">
+        <span class="button__body">Update opening hours</span>
+    </button>
+</form>

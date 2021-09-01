@@ -1,7 +1,27 @@
+@import '/src/scss/1.Settings/_index';
+
 .header {
+    font-family: $heading-font;
     color: var(--c-white);
     background-color: var(--c-green);
     border-bottom: 8px solid var(--c-burgendy);
+}
+
+.header__content {
+    display: flex;
+    flex-direction: column;
+    gap: var(--s2);
+
+    @include media($bp-medLg) {
+        flex-direction: row;
+        gap: var(--s4);
+        align-items: center;
+        justify-content: space-between;
+    }
+}
+
+h1 span {
+    font-size: var(--f5);
 }
 
 a {
@@ -11,5 +31,29 @@ a {
     &:hover,
     &:focus {
         text-decoration: underline;
+    }
+}
+
+.phone {
+    
+    font-size: var(--s4);
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    
+    @include media($bp-medLg) {
+        justify-content: flex-end;
+        font-size: var(--s5);
+    }
+
+    .icon {
+        margin-right: rem(8);
+    }
+}
+
+.address {
+    font-size: var(--f3);
+    @include media($bp-medLg) {
+        font-size: var(--f4);
     }
 }

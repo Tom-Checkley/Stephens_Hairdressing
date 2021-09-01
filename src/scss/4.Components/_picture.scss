@@ -1,0 +1,23 @@
+.picture {
+    box-shadow: rem(8) rem(8) 0 0 var(--c-burgendy);
+    
+    picture {
+        display: block;
+        overflow: hidden;
+        height: 100%;
+        border: 2px solid var(--c-green);
+    }
+    
+    img {
+        display: block;
+        height: 100%;
+        width: 100%;        
+    }
+}
+
+.picture--cover {
+    img {
+        object-fit: cover;
+        object-position: center;
+    }
+}

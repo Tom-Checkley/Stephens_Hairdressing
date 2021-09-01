@@ -1,0 +1,12 @@
+<div class="opening-hours">
+    <div class="flow-2">
+        <h3>Opening Hours</h3>
+        <table *ngIf="openingHours">
+            <tr *ngFor="let day of openingHours">
+                <td>{{ day.day }}</td>
+                <td *ngIf="!day.closed">{{ day.open }} - {{ day.close }}</td>
+                <td *ngIf="day.closed">Closed</td>
+            </tr>
+        </table>
+    </div>
+</div>
