@@ -1,10 +1,19 @@
 .wrapper {
-    padding: var(--s6);
+    padding: var(--s4);
     width: calc(100% - (var(--s4) * 2));
     max-width: rem($max-width);
     margin: 0 var(--s4);
 
+    @include media($bp-medLg) {
+        padding: var(--s6);
+    }
+
     @include media($max-width) {
         margin: 0 auto;
     }
+}
+
+.wrapper--shallow {
+    padding-top: var(--s2);
+    padding-bottom: var(--s2);
 }

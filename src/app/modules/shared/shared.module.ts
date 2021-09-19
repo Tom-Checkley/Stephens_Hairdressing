@@ -4,11 +4,12 @@ import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
-
+import { NavComponent } from './components/nav/nav.component';
 @NgModule({
   declarations: [
     HeaderComponent,
-    FooterComponent
+    FooterComponent,
+    NavComponent
   ],
   imports: [
     CommonModule,
@@ -17,7 +18,8 @@ import { FormsModule } from '@angular/forms';
   ],
   exports: [
       HeaderComponent,
-      FooterComponent
+      FooterComponent,
+      NavComponent
   ]
 })
 export class SharedModule { }

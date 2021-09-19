@@ -6,13 +6,12 @@ import { AngularFirestore } from '@angular/fire/firestore';
 })
 export class GetOpeningHoursService {
 
-      constructor(
+    constructor(
         private afs: AngularFirestore
     ) { }
 
     getOpeningHours() {
         return this.afs.doc('opening-hours/days')
-            .snapshotChanges()
-            
+            .snapshotChanges();            
     }
 }

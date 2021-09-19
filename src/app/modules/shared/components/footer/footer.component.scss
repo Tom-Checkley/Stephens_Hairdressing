@@ -1,0 +1,31 @@
+@import '/src/scss/1.Settings/_index';
+
+footer {
+    background-color: var(--c-green);
+    color: var(--c-white);
+    border-top: 8px solid var(--c-burgendy);
+}
+
+a {
+    color: inherit;
+}
+
+.footer__main {
+    font-size: var(--f4);
+}
+
+.footer__legal {
+    background-color: var(--c-black);
+}
+
+
+.phone {    
+    font-size: var(--f5);
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+
+    .icon {
+        margin-right: rem(8);
+    }
+}

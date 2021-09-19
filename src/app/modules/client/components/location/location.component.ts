@@ -13,7 +13,7 @@ export class LocationComponent implements OnInit {
     options: google.maps.MapOptions = {
         mapTypeId: 'roadmap'
     }
-    zoom: 17
+    zoom: 12;
 
     constructor() { }
 

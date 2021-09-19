@@ -1,11 +1,11 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
 
 import { AdminRoutingModule } from './admin-routing.module';
 import { AdminComponent } from './admin.component';
 import { LoginComponent } from './login/login.component';
-import { DashboardModule } from './dashboard/dashboard.module';
-
+import { SharedModule } from '../shared/shared.module';
 
 @NgModule({
   declarations: [
@@ -15,7 +15,7 @@ import { DashboardModule } from './dashboard/dashboard.module';
   imports: [
     CommonModule,
     AdminRoutingModule,
-    //DashboardModule
+    FormsModule
   ]
 })
 export class AdminModule { }

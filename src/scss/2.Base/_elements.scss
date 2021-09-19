@@ -20,6 +20,15 @@ main {
     flex-grow: 1;
 }
 
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    line-height: 1;
+}
+
 img {
     max-width: 100%;
 }
@@ -40,4 +49,14 @@ input {
     border-radius: 0;
     border: 1px solid var(--c-black);
     font-size: var(--f2);
+}
+
+address {
+    font-style: normal;
+}
+
+ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
 }

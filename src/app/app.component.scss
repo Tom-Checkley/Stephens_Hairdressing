@@ -1,0 +1,29 @@
+@import '/src/scss/1.Settings/_index';
+
+header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: var(--s4);
+    margin-bottom: var(--s4);
+
+    @include media($bp-medLg) {
+        flex-direction: row;
+        justify-content: space-between;
+        margin-bottom: var(--s6);
+    }
+}
+
+h2 {
+    text-align: center;
+    line-height: 1.2;
+
+    @include media($bp-medLg) {
+        text-align: left;
+    }
+}
+
+a {
+    line-height: 1;
+}

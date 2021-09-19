@@ -25,7 +25,7 @@ export class EditOpeningHoursComponent implements OnInit {
         });
     }
 
-    editOpeningHours() {
+    saveOpeningHours() {
         const updatedOpeningHours = {
             days: this.openingHours
         }

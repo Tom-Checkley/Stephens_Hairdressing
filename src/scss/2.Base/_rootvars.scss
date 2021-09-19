@@ -6,7 +6,7 @@
     --f5:                   #{rem($f5)};
     --f6:                   #{rem($f6)};
 
-    --body-font-size:       #{rem($body-font-size)};
+    --body-font-size:       var(--f3);
     --font-body:            #{$body-font};
     --font-heading:         #{$heading-font};
 
@@ -18,10 +18,20 @@
     --s6:                   #{rem($s6)};
     --s7:                   #{rem($s7)};
 
+    @include media($bp-med, null, 'max') {
+        --s1:                   #{rem($s1)};
+        --s2:                   #{rem($s1)};
+        --s3:                   #{rem($s2)};
+        --s4:                   #{rem($s3)};
+        --s5:                   #{rem($s4)};
+        --s6:                   #{rem($s5)};
+        --s7:                   #{rem($s6)};
+    }
+
     --c-white:              #{$c-white};
     --c-black:              #{$c-balck};
     --c-greyLight:          #{$c-greyLight};
+    --c-greyDark:           #{$c-greyDark};
     --c-green:              #{$c-green};
     --c-burgendy:           #{$c-burgendy};
-    --c-gold:               #{$c-gold};
 }

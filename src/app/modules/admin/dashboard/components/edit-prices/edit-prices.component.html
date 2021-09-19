@@ -1,1 +1,107 @@
-<p>edit-prices works!</p>
+<form action="" (ngSubmit)="savePrices()">
+    <header>
+        <h2>Prices</h2>
+        <button
+            type="button"
+            class="button button--primary"
+            (click)="savePrices()"
+            title="Save"            >
+            <span class="button__body">
+                <svg class="icon" aria-hidden="true">
+                    <use xlink:href="assets/svg/symbols.svg#icon--floppy"></use>
+                </svg>
+                <span class="button__text">Save</span>
+            </span>
+        </button>
+    </header>
+    <div *ngIf="prices" class="flow-3">
+        <fieldset *ngFor="let group of prices; index as i" class="flow-3 group">
+            <div class="group__name">
+                <div [hidden]="group.groupNameEditing">
+                    <h3>
+                        <button
+                            type="button"
+                            class="button button--text"
+                            (click)="isGroupNameEditing(group)"
+                            title="Edit"
+                        >
+                            <span class="button__body">
+                                <span class="button__text">{{ group.name }}</span>
+                                <svg class="icon" aria-hidden="true">
+                                    <use xlink:href="assets/svg/symbols.svg#icon--pencil"></use>
+                                </svg>
+                            </span>
+                        </button>                        
+                    </h3>
+                </div>
+                
+                <div [hidden]="!group.groupNameEditing" class="input">
+                    <label [for]="'group_' + i + '_name'" class="vh">Pricing group</label>
+                    <input 
+                        [id]="'group_' + i + '_name'"
+                        [name]="'group' + i + '_name'"
+                        [(ngModel)]="group.name"
+                        type="text"
+                        placeholder="Pricing group"
+                    >
+                </div>
+                <button
+                    type="button"
+                    class="button button--primary button--round"
+                    (click)="isGroupNameEditing(group)"
+                    title="Done"
+                    *ngIf="group.groupNameEditing"
+                >
+                    <span class="button__body">
+                        <svg class="icon" aria-hidden="true">
+                            <use xlink:href="assets/svg/symbols.svg#icon--check-mark"></use>
+                        </svg>
+                    </span>
+                </button>
+            </div>
+            <div class="form__row" *ngFor="let service of group.services; index as j">
+                <div class="form__control flow-1">
+                    <label [for]="'group' + i + '_service_' + j + '_name'" class="vh">Service</label>
+                    <input 
+                        [id]="'group' + i + '_service_' + j+ '_name'"
+                        type="text" 
+                        [name]="'group' + i + '_service_' + j+ '_name'"
+                        [(ngModel)]="service.name"
+                        required
+                    >
+                </div>
+                <div class="form__control flow-1">
+                    <label [for]="'group' + i + '_service_' + j + '_price'" class="vh">Price</label>
+                    <div class="price">
+                        <strong class="price__pound">&pound;</strong>
+                        <input
+                            class="price__input"
+                            [id]="'group' + i + '_service_' + j + '_price'"
+                            type="number"
+                            [name]="'group' + i + '_service_' + j + '_price'"
+                            [(ngModel)]="service.price"
+                            required
+                        >
+                    </div>
+                </div>
+            </div>
+            <button class="button button--text" (click)="addService(group)" type="button">
+                <span class="button__body">
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="assets/svg/symbols.svg#icon--plus"></use>
+                    </svg>
+                    <span class="button__text">Add service</span>
+                </span>
+            </button>
+        </fieldset>
+
+        <button class="button button--text" (click)="createGroup()" type="button">
+            <span class="button__body">
+                <svg class="icon" aria-hidden="true">
+                    <use xlink:href="assets/svg/symbols.svg#icon--plus"></use>
+                </svg>
+                <span class="button__text">Add a new pricing group</span>
+            </span>
+        </button>
+    </div>
+</form>

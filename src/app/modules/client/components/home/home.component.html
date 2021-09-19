@@ -1,30 +1,27 @@
 <div class="home">
-    <article class="flow-6">
+    <div class="flow-6">
         <section class="content">
-            <header>
-                <h2>Welcome to Stephens Hairdressing</h2>
-            </header>
             <aside>
                 <div class="picture">
                     <picture>
-                        <img src="/assets/img/outside.jpg" alt="">
+                        <img src="/assets/img/outside.jpg" alt="" loading="lazy">
                     </picture>
                 </div>
             </aside>
             <div class="body">
                 <div class="flow-2">
-                    <p>Stephen has {{ yearsExperience }} years experience hairdressing. He has been located here on St. Michaels Hill since {{ founded | date: "yyyy"}}. Whether your after just a trim or a full colour and style, Stephen can help.</p>
+                    <p>Stephen has {{ yearsExperience }} years experience hairdressing. He has been located here on St. Michaels Hill since {{ founded | date: "yyyy"}}. Whether you're after just a trim or a full colour and style, Stephen can help.</p>
                     
                     <app-opening-hours></app-opening-hours>
                 </div>
             </div>
-            <div class="picture picture--cover">
+            <div class="home__main-image picture picture--cover">
                 <picture>
                     <img src="/assets/img/inside.jpg
-                    " alt="">
+                    " alt="" loading="lazy">
                 </picture>
             </div>
         </section>
         <app-location></app-location>
-    </article>
+    </div>
 </div>

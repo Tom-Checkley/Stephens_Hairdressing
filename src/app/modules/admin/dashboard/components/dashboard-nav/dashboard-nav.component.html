@@ -3,5 +3,18 @@
         <li><a [routerLink]="['/admin/dashboard']">Dashboard</a></li>
         <li><a [routerLink]="['/admin/dashboard/edit-opening-hours']">Edit opening hours</a></li>
         <li><a [routerLink]="['/admin/dashboard/edit-prices']">Edit prices</a></li>
+        <li>
+            <button class="button button--logout">
+                <span class="button__body">Account</span>
+            </button>
+            <ul>
+                <li>
+                    <button class="button button--primary" (click)="logout()">
+                        <span class="button__body">Log out</span>
+                    </button>
+                </li>
+            </ul>
+        </li>
+
     </ul>
 </nav>

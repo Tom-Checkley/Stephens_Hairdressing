@@ -1,0 +1,77 @@
+@import '/src/scss/1.Settings/_index';
+
+form {
+    position: relative;
+}
+
+header {
+    position: sticky;
+    top: -1px;
+    background-color: var(--c-white);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid var(--c-green);
+
+    h2 {
+        font-size: var(--f5);
+    }
+
+    .button__body {
+        gap: rem(8);
+    }
+}
+
+.form__row {
+    display: grid;
+    grid-template-columns: 1fr 11ch;
+    gap: var(--s4);
+}
+
+.price {
+    display: grid;
+    gap: 8px;
+    grid-template-columns: auto 1fr;
+    align-items: center;
+}
+
+.group {
+    border: none;
+    padding: var(--s4);
+    margin: 0;
+
+    &:nth-child(odd) {
+        background-color: var(--c-greyLight);
+    }
+}
+
+.group__name {
+    display: flex;
+    align-items: flex-end;
+    gap: var(--s1);
+
+    .button__body {
+        font-size: var(--f4);
+    }
+
+    .input {
+        flex-grow: 1;
+    }
+}
+
+input {
+    background-color: var(--c-white);
+    &::-webkit-outer-spin-button,
+    &::-webkit-inner-spin-button {
+      -webkit-appearance: none;
+      margin: 0;
+    }
+    
+    &[type=number] {
+      -moz-appearance: textfield;
+    }
+}
+
+.price__pound {
+    font-size: var(--f5);
+}

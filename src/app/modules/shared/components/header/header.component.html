@@ -1,19 +1,21 @@
-<header class="header">
-    <div class="wrapper">
-        <div class="header__content">
-            <a [routerLink]="['/']">
-                <h1>Stephen Sheppard<br><span>Unisex Hairdressers</span></h1>
-            </a>
-
-            <div class="flow-2">
-                <a href="tel:+441179744483" class="phone">
-                    <svg class="icon" aria-hidden="true">
-                        <use xlink:href="/assets/svg/symbols.svg#icon--phone"></use>
-                    </svg>
-                    <span>01179 744 483</span>
-                </a>
-                <p class="address">153 St Michaels Hill, Kingsdown, Bristol, BS2 8DB</p>
+<header class="header">    
+    <div class="header__image-overlay">
+        <div class="wrapper">
+            <div class="header__content">
+                <h1>Stephen Sheppard<br><span>Unisex Hairdressers</span></h1>    
+                <address class="flow-2">
+                    <a href="tel:+441179744483" class="phone" aria-label="Phone">
+                        <svg class="icon" aria-hidden="true">
+                            <use xlink:href="/assets/svg/symbols.svg#icon--phone"></use>
+                        </svg>
+                        <span>01179 744 483</span>
+                    </a>
+                    <p class="address">153 St Michaels Hill, Kingsdown, Bristol, BS2 8DB</p>
+                </address>
             </div>
         </div>
     </div>
+    <picture class="picture picture--cover">
+        <img src="/assets/img/banner.jpg" alt="">
+    </picture>
 </header>

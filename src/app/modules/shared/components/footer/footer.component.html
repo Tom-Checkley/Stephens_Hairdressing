@@ -1,5 +1,28 @@
 <footer class="footer">
     <div class="wrapper">
-        <a [routerLink]="['/admin']">Admin</a>
+        <div class="footer__main">
+            <address class="flow-2">
+                <a href="tel:+441179744483" class="phone" aria-label="Phone">
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="/assets/svg/symbols.svg#icon--phone"></use>
+                    </svg>
+                    <span>01179 744 483</span>
+                </a>
+                <p class="address">
+                    <span>153 St Michaels Hill,</span><br>
+                    <span>Kingsdown,</span><br>
+                    <span>Bristol,</span><br>
+                    <span>BS2 8DB</span>
+                </p>
+            </address>
+        </div>
+    </div>
+    <div class="footer__legal">
+        <div class="wrapper wrapper--shallow">
+            <div class="footer__info">
+                <p>Site made by <a href="http://www.tomcheckley.co.uk/" target="_blank" rel="nofollow">Tom Checkley</a></p>
+                <a [routerLink]="['/admin']">Admin</a>
+            </div>
+        </div>
     </div>
 </footer>

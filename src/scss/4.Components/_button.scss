@@ -11,10 +11,16 @@
     &:focus-visible {
         outline: none;
     }
+
+    .icon {
+        font-size: 1.5em;
+    }
 }
 
 .button__body {
-    display: inline-block;
+    display: flex;
+    gap: var(4);
+    align-items: center;
     padding: var(--s1) var(--s4);
     transition: all 0.3s linear;
     width: 100%;
@@ -32,5 +38,23 @@
         .button__body {
             background-color: var(--c-burgendy);
         }
+    }
+}
+
+.button--text {
+    .button__body {
+        padding: 0;
+    }
+
+    &:hover,
+    &:focus-visible {
+        color: var(--c-burgendy);
+    }
+}
+
+.button--round {
+    .button__body {
+        padding: rem(4);
+        border-radius: 50%;
     }
 }

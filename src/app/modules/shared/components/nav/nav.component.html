@@ -1,0 +1,25 @@
+<nav>
+    <ul>
+        <li>
+            <a 
+                [routerLink]="['']"
+                [routerLinkActive]="'active'"
+                [routerLinkActiveOptions]="{exact: true}"
+            >Home</a>
+        </li>
+        <li>
+            <a
+                [routerLink]="['prices']"
+                [routerLinkActive]="'active'"
+                [routerLinkActiveOptions]="{exact: true}"
+            >Prices</a>
+        </li>
+        <li>
+            <a
+                [routerLink]="['reviews']"
+                [routerLinkActive]="'active'"
+                [routerLinkActiveOptions]="{exact: true}"
+            >Reviews</a>
+        </li>
+    </ul>
+</nav>

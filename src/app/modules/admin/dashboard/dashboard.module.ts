@@ -9,7 +9,6 @@ import { EditOpeningHoursComponent } from './components/edit-opening-hours/edit-
 import { EditPricesComponent } from './components/edit-prices/edit-prices.component';
 import { FormsModule } from '@angular/forms';
 
-
 @NgModule({
   declarations: [
     DashboardComponent,
@@ -21,7 +20,7 @@ import { FormsModule } from '@angular/forms';
   imports: [
     CommonModule,
     FormsModule,
-    DashboardRoutingModule
+    DashboardRoutingModule,
   ]
 })
 export class DashboardModule { }

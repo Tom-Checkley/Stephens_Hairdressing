@@ -7,6 +7,7 @@ import { OpeningHoursComponent } from './components/opening-hours/opening-hours.
 import { GoogleMapsModule } from '@angular/google-maps';
 import { LocationComponent } from './components/location/location.component';
 import { ReviewsComponent } from './components/reviews/reviews.component';
+import { PricesComponent } from './components/prices/prices.component';
 
 
 
@@ -15,7 +16,8 @@ import { ReviewsComponent } from './components/reviews/reviews.component';
     HomeComponent,
     OpeningHoursComponent,
     LocationComponent,
-    ReviewsComponent
+    ReviewsComponent,
+    PricesComponent
   ],
   imports: [
     CommonModule,

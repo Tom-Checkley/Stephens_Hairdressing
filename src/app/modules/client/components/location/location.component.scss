@@ -2,5 +2,7 @@
 
 .map {
     border: 2px solid var(--c-green);
-    box-shadow: rem(8) rem(8) 0 0 var(--c-burgendy);
+    @include media($bp-med) {
+        box-shadow: rem(8) rem(8) 0 0 var(--c-burgendy);
+    }
 }
