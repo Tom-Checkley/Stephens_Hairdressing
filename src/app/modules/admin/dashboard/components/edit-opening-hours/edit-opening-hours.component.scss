@@ -1,0 +1,20 @@
+@import '/src/scss/1.Settings/_index';
+
+.form__row {
+    grid-template-columns: 1fr 1fr auto;
+    div:first-child {
+        grid-column: 1 / -1;
+    }
+    @include media($bp-small) {
+        grid-template-columns: rem(80) 1fr 1fr auto;
+        div:first-child {
+            grid-column: 1;
+        }
+    }
+}
+
+legend {
+    @include media($bp-small) {
+        text-align: right;
+    }
+}

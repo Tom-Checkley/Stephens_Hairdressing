@@ -1,52 +1,85 @@
-<form action="" class="flow-4" (ngSubmit)="saveOpeningHours()">
-    <h2>Opening hours</h2>
-    <table *ngIf="openingHours">
-        <thead>
-            <th scope="col">Day</th>
-            <th scope="col">Opening time</th>
-            <th scope="col">Closing time</th>
-            <th scope="col">Closed all day</th>
-        </thead>
-        <tr *ngFor="let day of openingHours">
-            <th scope="row"><strong>{{ day.day }}</strong></th>
-            <td>
-                <label class="vh" [for]="'open' + day.day">Opening time</label>
-                <input
-                    type="text"
-                    placeholder="open"
-                    [id]="'open' + day.day"
-                    [name]="'open' + day.day"
-                    [(ngModel)]="day.open"
-                />
-            </td>
-            <td>
-                <label class="vh" [for]="'close' + day.day">Closing time</label>
-                <input
-                    type="text"
-                    placeholder="close"
-                    [id]="'close' + day.day"
-                    [name]="'close' + day.day"
-                    [(ngModel)]="day.close"
-                    [required]="!day.closed"
-                />
-            </td>
-            <td>
-                <label class="vh" [for]="'closed' + day.day" class="checkbox">
+<app-loading *ngIf="loading"></app-loading>
+<form action="" (ngSubmit)="saveOpeningHours()" *ngIf="!loading">
+    <div class="form__header">
+        <h2>Opening hours</h2>
+        <button
+            class="button button--primary button--save"
+            type="submit"
+            (click)="saveOpeningHours()"
+            title="Save"            >
+            <span class="button__body">
+                <svg class="icon" aria-hidden="true">
+                    <use xlink:href="assets/svg/symbols.svg#icon--floppy"></use>
+                </svg>
+                <span class="button__text">Save</span>
+            </span>
+        </button>
+    </div>
+    <div *ngIf="openingHours" class="flow-3">
+        <section *ngFor="let day of openingHours" class="form__section">
+            <fieldset class="form__row">
+                <div>
+                    <legend><strong>{{ day.day }}</strong></legend>
+                </div>
+                <div class="input">
+                    <label class="vh" [for]="'open' + day.day">Opening time</label>
                     <input
-                        id="monClosed"
-                        type="checkbox"
-                        class="vh"
-                        [name]="'closed' + day.day"
-                        [(ngModel)]="day.closed"
+                        type="text"
+                        placeholder="Open"
+                        [id]="'open' + day.day"
+                        [name]="'open' + day.day"
+                        [(ngModel)]="day.open"
                         [required]="!day.closed"
+                        [disabled]="day.closed"
                     />
-                    <span>Closed all day</span>
-                </label>
-            </td>
-        </tr>
+                </div>
+                <div class="input">
+                    <label class="vh" [for]="'close' + day.day">Closing time</label>
+                    <input
+                        type="text"
+                        placeholder="Close"
+                        [id]="'close' + day.day"
+                        [name]="'close' + day.day"
+                        [(ngModel)]="day.close"
+                        [required]="!day.closed"
+                        [disabled]="day.closed"
+                    />
+                </div>
+                <div class="input">
+                    <label class="vh" [for]="'closed' + day.day" class="checkbox">
+                        <input
+                            [id]="'closed' + day.day"
+                            type="checkbox"
+                            class="vh"
+                            [name]="'closed' + day.day"
+                            [(ngModel)]="day.closed"
+                            (ngModelChange)="onClosedToggle(day)"
+                        />
+                        <span class="checkbox__outer" aria-hidden="true">
+                            <svg class="icon" *ngIf="day.closed">
+                                <use xlink:href="/assets/svg/symbols.svg#icon--check-mark"></use>
+                            </svg>
+                        </span>
+                        <span>Closed</span>
+                    </label>
+                </div>
+            </fieldset>
+        </section>
         
-    </table>
-    <button class="button button--primary" type="submit">
-        <span class="button__body">Update opening hours</span>
-    </button>
+    </div>
+    <div class="form__actions">
+        <button
+            class="button button--primary button--save"
+            type="submit"
+            (click)="saveOpeningHours()"
+            title="Save"
+        >
+            <span class="button__body">
+                <svg class="icon" aria-hidden="true">
+                    <use xlink:href="assets/svg/symbols.svg#icon--floppy"></use>
+                </svg>
+                <span class="button__text">Save</span>
+            </span>
+        </button>
+    </div>
 </form>

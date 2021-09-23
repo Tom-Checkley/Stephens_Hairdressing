@@ -1,20 +1,71 @@
 <nav>
-    <ul>
-        <li><a [routerLink]="['/admin/dashboard']">Dashboard</a></li>
-        <li><a [routerLink]="['/admin/dashboard/edit-opening-hours']">Edit opening hours</a></li>
-        <li><a [routerLink]="['/admin/dashboard/edit-prices']">Edit prices</a></li>
+    <ul class="dashboard-nav">
         <li>
-            <button class="button button--logout">
-                <span class="button__body">Account</span>
+            <a
+                [routerLink]="['/admin/dashboard']"
+                [routerLinkActive]="['active']"
+                [routerLinkActiveOptions]="{exact: true}"
+            >
+                <span>Dashboard</span>
+            </a>
+        </li>
+        <li>
+            <a
+                [routerLink]="['/admin/dashboard/edit-opening-hours']"
+                [routerLinkActive]="['active']"
+                [routerLinkActiveOptions]="{exact: true}"
+            >
+                <span>Edit opening hours</span>
+            </a>
+        </li>
+        <li>
+            <a
+                [routerLink]="['/admin/dashboard/edit-prices']"
+                [routerLinkActive]="['active']"
+                [routerLinkActiveOptions]="{exact: true}"
+            >
+                <span>Edit prices</span>
+            </a>
+        </li>
+        <li class="user">
+            <svg class="icon icon--user">
+                <use xlink:href="/assets/svg/symbols.svg#icon--user"></use>
+            </svg>
+            <span>Hi </span>
+            <!-- <span class="button__text">{{ user.nginx }}</span> -->
+        </li>
+        <!-- <li class="sub-nav">
+            <button class="button button--user" [ngClass]="{'active': subnavOpen}" (click)="subnavOpen = !subnavOpen">
+                <span class="button__body">
+                    <svg class="icon icon--user">
+                        <use xlink:href="/assets/svg/symbols.svg#icon--user"></use>
+                    </svg>
+                    <span class="button__text">Account</span>
+                    <svg class="icon icon--chevron">
+                        <use xlink:href="/assets/svg/symbols.svg#icon--chevron-bottom"></use>
+                    </svg>
+                </span>
             </button>
-            <ul>
+            <ul *ngIf="subnavOpen">
                 <li>
-                    <button class="button button--primary" (click)="logout()">
+                    <a
+                        [routerLink]="['']"
+                    >
+                        <span>Edit details</span>
+                    </a>
+                    <a
+                        [routerLink]="['']"
+                    >
+                        <span>Users</span>
+                    </a>
+                </li>
+                <li>
+                    <button class="button button--primary button--logout" (click)="logout()">
                         <span class="button__body">Log out</span>
                     </button>
                 </li>
             </ul>
-        </li>
+        </li> -->
 
     </ul>
 </nav>

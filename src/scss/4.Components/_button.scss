@@ -1,8 +1,12 @@
+@import '/src/scss/1.Settings/_index';
+
 .button {
     display: inline-block;
     appearance: none;
     border: none;
     background-color: inherit;
+    font-family: $heading-font;
+    font-size: var(--f2);
     font-weight: 700;
     padding: 0;
     cursor: pointer;
@@ -19,7 +23,8 @@
 
 .button__body {
     display: flex;
-    gap: var(4);
+    gap: rem(4);
+    justify-content: center;
     align-items: center;
     padding: var(--s1) var(--s4);
     transition: all 0.3s linear;
@@ -56,5 +61,37 @@
     .button__body {
         padding: rem(4);
         border-radius: 50%;
+    }
+}
+
+.button--save {
+    .button__body {
+        gap: rem(8);
+    }
+}
+
+.button--user {
+    .button__body {
+        padding: var(--s1) var(--s2);
+        color: var(--c-white);
+    }
+
+    .icon--chevron {
+        transition: transform .3s linear;
+        font-size: 2rem;
+    }
+
+    &.active {
+        .icon--chevron {
+            transform: rotate(180deg);
+        }
+    }
+}
+
+.button--logout {
+    width: 100%;
+
+    .button__body {
+        padding: var(--s1) var(--s2);
     }
 }

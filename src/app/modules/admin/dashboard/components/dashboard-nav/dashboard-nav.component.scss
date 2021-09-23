@@ -1,0 +1,51 @@
+@import '/src/scss/1.Settings/_index';
+
+nav {
+    background-color: var(--c-black);
+    padding: 0 var(--s3);
+    position: relative;
+    font-family: $heading-font;
+    font-size: var(--f2);
+}
+
+.dashboard-nav {
+    display: flex;
+    align-items: center;
+    gap: var(--s3);
+
+    a {
+        color: var(--c-white);
+        text-decoration: none;
+    
+        &:hover,
+        &:focus-visible,
+        &.active {
+            text-decoration: underline;
+        }
+    }
+}
+
+.user {
+    margin-left: auto;
+}
+
+// .sub-nav {
+//     margin-left: auto;
+//     position: relative;
+
+//     ul {
+//         padding: 0;
+//         position: absolute;
+//         width: 100%;
+//     }
+
+//     a {
+//         display: block;
+//         color: var(--c-black);
+//         padding: var(--s1) var(--s2);
+//         border-left: 1px solid var(--c-green);
+//         border-right: 1px solid var(--c-green);
+//         border-bottom: 1px solid var(--c-green);
+//     }
+// }
+

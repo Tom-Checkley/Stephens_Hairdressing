@@ -1,0 +1,36 @@
+@use 'sass:math';
+
+.loading {
+    padding: var(--s6);
+    display: flex;
+    justify-content: center;
+    gap: var(--s1);
+}
+
+.loading__item {
+    width: 20px;
+    height: 40px;
+    background-color: var(--c-green);
+    animation-name: pulse;
+    animation-duration: .9s;
+    animation-iteration-count: infinite;
+}
+
+@for $i from 1 through 5 {
+    .loading__item:nth-child(#{$i}) {
+        $s: math.div(.3, $i);
+        animation-delay: #{$s}s;
+    }
+}
+
+@keyframes pulse {
+    0% {
+        transform: scaleY(1);
+    }
+    50% {
+        transform: scaleY(1.3);
+    }
+    100% {
+        transform: scaleY(1);
+    }
+}

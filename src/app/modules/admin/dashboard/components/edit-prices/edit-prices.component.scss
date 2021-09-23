@@ -1,31 +1,9 @@
 @import '/src/scss/1.Settings/_index';
 
-form {
-    position: relative;
-}
 
-header {
-    position: sticky;
-    top: -1px;
-    background-color: var(--c-white);
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    border-bottom: 1px solid var(--c-green);
 
-    h2 {
-        font-size: var(--f5);
-    }
-
-    .button__body {
-        gap: rem(8);
-    }
-}
-
-.form__row {
-    display: grid;
-    grid-template-columns: 1fr 11ch;
-    gap: var(--s4);
+.form__row {    
+    grid-template-columns: 1fr 11ch auto;
 }
 
 .price {
@@ -35,14 +13,12 @@ header {
     align-items: center;
 }
 
-.group {
-    border: none;
-    padding: var(--s4);
-    margin: 0;
+.price__pound {
+    font-size: var(--f5);
+}
 
-    &:nth-child(odd) {
-        background-color: var(--c-greyLight);
-    }
+.group {
+    
 }
 
 .group__name {
@@ -59,19 +35,7 @@ header {
     }
 }
 
-input {
-    background-color: var(--c-white);
-    &::-webkit-outer-spin-button,
-    &::-webkit-inner-spin-button {
-      -webkit-appearance: none;
-      margin: 0;
-    }
-    
-    &[type=number] {
-      -moz-appearance: textfield;
-    }
-}
-
-.price__pound {
-    font-size: var(--f5);
+.form__actions {
+    gap: var(--s3);
+    justify-content: space-between;
 }

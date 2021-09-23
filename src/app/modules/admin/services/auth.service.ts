@@ -22,6 +22,7 @@ export class AuthService {
             .then(res => {
                 this.isLoggedIn = true;
                 this.router.navigate([returnUrl]);
+                
             }).catch(err => {
                 console.error(err);
             });
@@ -40,8 +41,8 @@ export class AuthService {
     }
 
     getLoggedInUser()
-     {
-        this.isLoggedInUser().pipe(
+    {
+        return this.isLoggedInUser().pipe(
             tap(user => {
                 if (user) {
                     this.loggedInUser = user;

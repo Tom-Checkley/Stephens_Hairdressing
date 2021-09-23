@@ -8,6 +8,7 @@ import { DashboardLandingComponent } from './components/dashboard-landing/dashbo
 import { EditOpeningHoursComponent } from './components/edit-opening-hours/edit-opening-hours.component';
 import { EditPricesComponent } from './components/edit-prices/edit-prices.component';
 import { FormsModule } from '@angular/forms';
+import { SharedModule } from '../../shared/shared.module';
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import { FormsModule } from '@angular/forms';
     CommonModule,
     FormsModule,
     DashboardRoutingModule,
+    SharedModule
   ]
 })
 export class DashboardModule { }

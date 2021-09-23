@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { Prices } from 'src/app/modules/shared/models/prices';
 import { Service } from 'src/app/modules/shared/models/service';
 import { PricingGroup } from '../../../../shared/models/pricing-group';
 import { GetPricesService } from '../../../../shared/services/get-prices.service';
+import { EditPricesService } from '../../../services/edit-prices.service';
 
 @Component({
   selector: 'app-edit-prices',
@@ -9,24 +11,29 @@ import { GetPricesService } from '../../../../shared/services/get-prices.service
   styleUrls: ['./edit-prices.component.scss']
 })
 export class EditPricesComponent implements OnInit {
-    prices: [PricingGroup];
+    loading: boolean = true;
+    prices: Prices;
 
     constructor(
-        private getPricesService: GetPricesService
+        private getPricesService: GetPricesService,
+        private editPricesService: EditPricesService
     ) { }
 
     ngOnInit(): void {
         this.getPricesService.getPrices().subscribe(res => {
             const data: any = res.payload.data();
-            this.prices = data.priceGroups;
-            this.prices.forEach(group => {
+            this.prices = data;
+            this.prices.priceGroups.forEach(group => {
                 group.groupNameEditing = false;
-            })
+            });
+            setTimeout(() => {
+                this.loading = false;
+            }, 300);
         })
     }
 
     savePrices() {
-
+        this.editPricesService.editPrices(this.prices);
     }
 
     createGroup() {
@@ -34,14 +41,14 @@ export class EditPricesComponent implements OnInit {
             name: '',
             services: []
         };
-        this.prices.push(newGroup);
-        console.log(this.prices);
+        this.prices.priceGroups.push(newGroup);
     }
 
     addService(group: PricingGroup): void {
         const newService: Service = {
             name: '',
-            price: 0
+            price: 0,
+            priceIsFrom: false
         };
         group.services.push(newService);
     }

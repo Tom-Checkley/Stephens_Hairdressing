@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { NgForm } from '@angular/forms';
 import { OpeningHours } from 'src/app/modules/shared/models/opening-hours';
 import { GetOpeningHoursService } from '../../../../shared/services/get-opening-hours.service';
 import { EditOpeningHoursService } from '../../../services/edit-opening-hours.service';
@@ -10,6 +9,7 @@ import { EditOpeningHoursService } from '../../../services/edit-opening-hours.se
   styleUrls: ['./edit-opening-hours.component.scss']
 })
 export class EditOpeningHoursComponent implements OnInit {
+    loading: boolean = true;
     openingHours: [OpeningHours];
 
     constructor(
@@ -22,6 +22,10 @@ export class EditOpeningHoursComponent implements OnInit {
         this.getOpeningHoursService.getOpeningHours().subscribe(res => {
             const data: any = res.payload.data();
             this.openingHours = data.days;
+            
+            setTimeout(() => {
+                this.loading = false;
+            }, 300);
         });
     }
 
@@ -30,6 +34,13 @@ export class EditOpeningHoursComponent implements OnInit {
             days: this.openingHours
         }
         this.editOpeningHoursService.editOpeningHours(updatedOpeningHours);
+    }
+
+    onClosedToggle(day: OpeningHours): void {
+        if (day.closed) {
+            day.open = '';
+            day.close = '';
+        }
     }
 
 }

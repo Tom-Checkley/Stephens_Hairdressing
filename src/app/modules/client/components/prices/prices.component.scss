@@ -1,0 +1,34 @@
+@import '/src/scss/1.Settings/_index';
+
+.prices {
+    max-width: rem(600);
+    margin: 0 auto;
+}
+
+h3 {
+    background-color: var(--c-green);
+    color: var(--c-white);
+    padding: var(--s2) var(--s3);
+}
+
+li {
+    padding: var(--s2) var(--s3);
+    &:nth-child(odd) {
+        background-color: var(--c-greyLight);
+    }
+}
+
+dl {
+    margin: 0;
+    font-weight: 700;
+    display: flex;
+}
+
+dt {
+    line-height: 1;
+    margin-right: auto;
+}
+
+dd {
+    line-height: 1;
+}

@@ -1,1 +1,21 @@
-<p>prices works!</p>
+<div class="prices">
+    <div *ngIf="prices" class="flow-3">
+        <h2>Prices</h2>
+        <div>
+            <section *ngFor="let group of prices.priceGroups">
+                <h3>{{ group.name }}</h3>
+                <ul class="">
+                    <li *ngFor="let service of group.services">
+                        <dl class="service">
+                            <dt class="service__name">{{ service.name }}</dt>
+                            <dd>
+                                <span class="service__from" *ngIf="service.priceIsFrom">From </span>
+                                <span>&pound;{{ service.price }}</span>
+                            </dd>
+                        </dl>
+                    </li>
+                </ul>
+            </section>
+        </div>
+    </div>
+</div>

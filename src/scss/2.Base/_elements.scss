@@ -38,6 +38,16 @@ form {
     margin: 0 auto;
 }
 
+fieldset {
+    border: none;
+    padding: 0;
+    margin: 0;
+}
+
+legend {
+    padding: 0;
+}
+
 label {
     line-height: 1;
 }
@@ -47,8 +57,19 @@ input {
     width: 100%;
     padding: var(--s1) var(--s2);
     border-radius: 0;
-    border: 1px solid var(--c-black);
+    border: 1px solid var(--c-green);
     font-size: var(--f2);
+    background-color: var(--c-white);
+    
+    &::-webkit-outer-spin-button,
+    &::-webkit-inner-spin-button {
+      -webkit-appearance: none;
+      margin: 0;
+    }
+    
+    &[type=number] {
+      -moz-appearance: textfield;
+    }
 }
 
 address {

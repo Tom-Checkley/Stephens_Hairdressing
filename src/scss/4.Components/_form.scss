@@ -1,0 +1,63 @@
+.form {
+    position: relative;
+}
+
+.form__header {
+    position: sticky;
+    top: -1px;
+    z-index: 1;
+    background-color: var(--c-white);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid var(--c-green);
+
+    h2 {
+        font-size: var(--f5);
+    }
+}
+
+.form__section {
+    border: none;
+    padding: var(--s4);
+    margin: 0;
+
+    &:nth-child(odd) {
+        background-color: var(--c-greyLight);
+    }
+}
+
+.form__row {
+    display: grid;
+    gap: var(--s4);
+    align-items: center;
+}
+
+.form__actions {
+    border-top: 1px solid var(--c-green);
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.checkbox {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.checkbox__outer {
+    display: flex;
+    justify-content: center;
+    align-items: center;    
+    flex: 0 0 auto;
+    width: rem(18);
+    height: rem(18);
+    background-color: var(--c-white);
+    border: 1px solid var(--c-green);
+
+    .icon {
+        position: absolute;
+        font-size: 1.25rem;
+    }
+}
