@@ -25,6 +25,10 @@ export class LoginComponent implements OnInit {
         this.authService.login(this.email, this.password, this.returnUrl)
     }
 
+    googleLogin() {
+        this.authService.signInWithGoogle()
+    }
+
     logout() {
         this.authService.logout();
     }

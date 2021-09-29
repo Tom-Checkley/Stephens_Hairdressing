@@ -33,6 +33,14 @@ img {
     max-width: 100%;
 }
 
+a {
+    &:hover,
+    &:focus {
+        color: var(--c-burgendy);
+        outline: none;
+    }
+}
+
 form {
     max-width: rem(600);
     margin: 0 auto;

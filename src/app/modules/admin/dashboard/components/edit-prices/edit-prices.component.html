@@ -1,5 +1,5 @@
 <app-loading *ngIf="loading"></app-loading>
-<form action="" (ngSubmit)="savePrices()" class="form" *ngIf="!loading">
+<form action="" (ngSubmit)="savePrices()" class="form" [hidden]="loading || erroredOnSave || savedSuccess">
     <div class="form__header">
         <h2>Prices</h2>
         <button
@@ -138,3 +138,21 @@
         </div>
     </div>
 </form>
+
+<section [hidden]="!erroredOnSave || (loading || savedSuccess)">
+    <div class="flow-3">
+        <h2>Something went wrong</h2>
+        <button class="button button--primary" type="button" (click)="showForm()">
+            <span class="button__body">Try again</span>
+        </button>
+    </div>
+</section>
+
+<section [hidden]="!savedSuccess || (loading || erroredOnSave)">
+    <div class="flow-3">
+        <h2>Saved successfully</h2>
+        <button class="button button--primary" type="button" (click)="showForm()">
+            <span class="button__body">Edit</span>
+        </button>
+    </div>
+</section>

@@ -11,6 +11,8 @@ import { EditOpeningHoursService } from '../../../services/edit-opening-hours.se
 export class EditOpeningHoursComponent implements OnInit {
     loading: boolean = true;
     openingHours: [OpeningHours];
+    erroredOnSave: boolean = false;
+    savedSuccess: boolean = false;
 
     constructor(
         private getOpeningHoursService: GetOpeningHoursService,
@@ -30,10 +32,22 @@ export class EditOpeningHoursComponent implements OnInit {
     }
 
     saveOpeningHours() {
+        this.loading = true;
         const updatedOpeningHours = {
             days: this.openingHours
         }
-        this.editOpeningHoursService.editOpeningHours(updatedOpeningHours);
+        this.editOpeningHoursService.editOpeningHours(updatedOpeningHours)
+            .then(() => {
+                this.erroredOnSave = false;
+                this.savedSuccess = true;
+                this.loading = false;
+            })
+            .catch(err => {
+                console.error(err);
+                this.erroredOnSave = true;
+                this.savedSuccess = false;
+                this.loading = false;
+            })
     }
 
     onClosedToggle(day: OpeningHours): void {
@@ -41,6 +55,11 @@ export class EditOpeningHoursComponent implements OnInit {
             day.open = '';
             day.close = '';
         }
+    }
+
+    showForm() {
+        this.savedSuccess = false;
+        this.erroredOnSave = false;
     }
 
 }

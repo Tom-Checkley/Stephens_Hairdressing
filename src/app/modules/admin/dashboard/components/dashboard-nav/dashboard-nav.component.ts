@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router, ActivatedRoute, ParamMap } from '@angular/router';
+import { User } from 'src/app/modules/shared/models/user';
 import { AuthService } from '../../../services/auth.service';
 
 @Component({
@@ -8,12 +10,14 @@ import { AuthService } from '../../../services/auth.service';
 })
 export class DashboardNavComponent implements OnInit {
     subnavOpen: boolean;
-    user: any;
+    user: User | null;
 
-    constructor(private authService: AuthService) { }
+    constructor(
+        private authService: AuthService
+    ) { }
 
     ngOnInit(): void {
-        this.authService.loggedInUser;
+        this.user = this.authService.getLoggedInUser();
     }
 
     logout() {

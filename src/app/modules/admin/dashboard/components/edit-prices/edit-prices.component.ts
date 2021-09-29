@@ -11,8 +11,10 @@ import { EditPricesService } from '../../../services/edit-prices.service';
   styleUrls: ['./edit-prices.component.scss']
 })
 export class EditPricesComponent implements OnInit {
-    loading: boolean = true;
     prices: Prices;
+    loading: boolean = true;
+    erroredOnSave: boolean = false;
+    savedSuccess: boolean = false;
 
     constructor(
         private getPricesService: GetPricesService,
@@ -33,7 +35,18 @@ export class EditPricesComponent implements OnInit {
     }
 
     savePrices() {
-        this.editPricesService.editPrices(this.prices);
+        this.editPricesService.editPrices(this.prices)
+            .then(() => {
+                this.erroredOnSave = false;
+                this.savedSuccess = true;
+                this.loading = false;
+            })
+            .catch(err => {
+                console.error(err);
+                this.erroredOnSave = true;
+                this.savedSuccess = false;
+                this.loading = false;
+            })
     }
 
     createGroup() {
@@ -55,5 +68,10 @@ export class EditPricesComponent implements OnInit {
 
     isGroupNameEditing(group: PricingGroup) {
         group.groupNameEditing = !group.groupNameEditing;
+    }
+
+    showForm() {
+        this.savedSuccess = false;
+        this.erroredOnSave = false;
     }
 }

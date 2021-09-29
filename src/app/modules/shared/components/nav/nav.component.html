@@ -3,22 +3,25 @@
         <li>
             <a 
                 [routerLink]="['']"
-                [routerLinkActive]="'active'"
+                [routerLinkActive]="'active'" #home="routerLinkActive"
                 [routerLinkActiveOptions]="{exact: true}"
+                [attr.aria-current]="home.isActive ? 'page' : undefined"
             >Home</a>
         </li>
         <li>
             <a
                 [routerLink]="['prices']"
-                [routerLinkActive]="'active'"
+                [routerLinkActive]="'active'" #prices="routerLinkActive"
                 [routerLinkActiveOptions]="{exact: true}"
+                [attr.aria-current]="prices.isActive ? 'page' : undefined"
             >Prices</a>
         </li>
         <li>
             <a
                 [routerLink]="['reviews']"
-                [routerLinkActive]="'active'"
+                [routerLinkActive]="'active'" #reviews="routerLinkActive"
                 [routerLinkActiveOptions]="{exact: true}"
+                [attr.aria-current]="reviews.isActive ? 'page' : undefined"
             >Reviews</a>
         </li>
     </ul>

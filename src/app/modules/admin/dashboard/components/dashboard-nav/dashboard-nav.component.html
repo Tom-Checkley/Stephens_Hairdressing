@@ -27,20 +27,14 @@
                 <span>Edit prices</span>
             </a>
         </li>
-        <li class="user">
-            <svg class="icon icon--user">
-                <use xlink:href="/assets/svg/symbols.svg#icon--user"></use>
-            </svg>
-            <span>Hi </span>
-            <!-- <span class="button__text">{{ user.nginx }}</span> -->
-        </li>
-        <!-- <li class="sub-nav">
+
+        <li class="user" *ngIf="user">
             <button class="button button--user" [ngClass]="{'active': subnavOpen}" (click)="subnavOpen = !subnavOpen">
                 <span class="button__body">
                     <svg class="icon icon--user">
                         <use xlink:href="/assets/svg/symbols.svg#icon--user"></use>
                     </svg>
-                    <span class="button__text">Account</span>
+                    <span class="button__text">{{ user.displayName }}</span>
                     <svg class="icon icon--chevron">
                         <use xlink:href="/assets/svg/symbols.svg#icon--chevron-bottom"></use>
                     </svg>
@@ -48,24 +42,12 @@
             </button>
             <ul *ngIf="subnavOpen">
                 <li>
-                    <a
-                        [routerLink]="['']"
-                    >
-                        <span>Edit details</span>
-                    </a>
-                    <a
-                        [routerLink]="['']"
-                    >
-                        <span>Users</span>
-                    </a>
-                </li>
-                <li>
                     <button class="button button--primary button--logout" (click)="logout()">
                         <span class="button__body">Log out</span>
                     </button>
                 </li>
             </ul>
-        </li> -->
+        </li>
 
     </ul>
 </nav>

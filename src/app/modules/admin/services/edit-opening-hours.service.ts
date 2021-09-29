@@ -12,8 +12,8 @@ export class EditOpeningHoursService {
         private afs: AngularFirestore
     ) { }
 
-    editOpeningHours(openingHours) {
+    editOpeningHours(openingHours): Promise<any> {
         const dbRef = this.afs.doc('opening-hours/days');
-        dbRef.update(openingHours);
+        return dbRef.update(openingHours);
     }
 }

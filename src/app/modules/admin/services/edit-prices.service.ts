@@ -13,6 +13,6 @@ export class EditPricesService {
 
   editPrices(prices: Prices) {
       const dbRef = this.afs.doc('prices/groups');
-      dbRef.update(prices);
+      return dbRef.update(prices);
   }
 }

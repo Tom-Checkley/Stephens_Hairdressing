@@ -11,10 +11,7 @@ const reviewsUrl = `https://mybusiness.googleapis.com/v4/accounts/${config.myBus
 exports.reviewsApi = functions.https.onRequest((request, response) => {
     cors(request, response, () => {
         return axios.get(reviewsUrl, {
-                headers: {
-                    "Accept": "application/json",
-                    "Content-Type": "application/json"
-                }
+                
             })
             .then(res => {
                 console.log(res.data);
