@@ -1,0 +1,16 @@
+<form action="" class="flow-3">
+    <h2>Authorised users</h2>
+    <div>
+        <ul *ngIf="authorisedUsers">
+            <li *ngFor="let email of authorisedUsers.emails">
+                <a [attr.href]="'mailto:' + email">{{ email }}</a>
+            </li>
+        </ul>
+        <div class="input">
+            <input type="email" name="inputEmail" [(ngModel)]="inputEmail">
+            <button class="button button--primary" (click)="addAuthorisedUser()">
+                <span class="button__body">Add</span>
+            </button>
+        </div>
+    </div>
+</form>

@@ -1,0 +1,21 @@
+.input {
+    display: flex;
+}
+
+a {
+    color: var(--c-black);
+    text-decoration: none;
+
+    &:hover,
+    &:focus-visible {
+        text-decoration: underline;
+    }
+}
+
+li {
+    padding: var(--s1) var(--s2);
+
+    &:nth-child(odd) {
+        background-color: var(--c-greyLight);
+    }
+}

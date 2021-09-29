@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { AngularFireModule } from '@angular/fire';
+import { AngularFireModule } from '@angular/fire/compat';
 import { BrowserModule } from '@angular/platform-browser';
 import { environment } from 'src/environments/environment';
 

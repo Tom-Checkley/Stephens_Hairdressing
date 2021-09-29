@@ -9,6 +9,7 @@ import { EditOpeningHoursComponent } from './components/edit-opening-hours/edit-
 import { EditPricesComponent } from './components/edit-prices/edit-prices.component';
 import { FormsModule } from '@angular/forms';
 import { SharedModule } from '../../shared/shared.module';
+import { AuthorisedUsersComponent } from './components/authorised-users/authorised-users.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { SharedModule } from '../../shared/shared.module';
     DashboardNavComponent,
     DashboardLandingComponent,
     EditOpeningHoursComponent,
-    EditPricesComponent
+    EditPricesComponent,
+    AuthorisedUsersComponent,
   ],
   imports: [
     CommonModule,

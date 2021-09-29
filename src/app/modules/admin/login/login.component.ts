@@ -21,12 +21,12 @@ export class LoginComponent implements OnInit {
         this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/admin';
     }
 
-    login() {
-        this.authService.login(this.email, this.password, this.returnUrl)
-    }
+    // login() {
+    //     this.authService.login(this.email, this.password, this.returnUrl)
+    // }
 
     googleLogin() {
-        this.authService.signInWithGoogle()
+        this.authService.signInWithGoogle(this.returnUrl)
     }
 
     logout() {

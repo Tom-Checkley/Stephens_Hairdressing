@@ -1,94 +1,96 @@
 import { Injectable, NgZone } from '@angular/core';
-import { AngularFireAuth } from '@angular/fire/auth';
+import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { Router } from '@angular/router';
-// import { getAuth, signInWithPopup, GoogleAuthProvider  } from 'firebase/auth';
+import { AngularFirestore } from '@angular/fire/compat/firestore';
+import firebase from 'firebase/compat/app';
 import { User } from '../../shared/models/user';
-
 
 @Injectable({
     providedIn: 'root'
 })
 export class AuthService {
-    isLoggedIn: boolean;
-    loggedInUser: any;
+    authorisedUsers;
     user: User;
 
     constructor(
         private afAuth: AngularFireAuth,
+        private afs: AngularFirestore,
         private router: Router,
         private ngZone: NgZone
     ) {
-        this.afAuth.authState.subscribe(user => {
-            if (user) {
-                localStorage.setItem('user', JSON.stringify(user));
-                const userJson = localStorage.getItem('user');
-                this.loggedInUser = userJson ? JSON.parse(userJson) : null;
+        this.afAuth.authState.subscribe(res => {
+            if (!this.user) {
+                localStorage.setItem('user', '');
             } else {
-                localStorage.setItem('user', '')
+                localStorage.setItem('user', JSON.stringify(this.user));
             }
-        })
+        });
+        this.getAuthorisedUserEmails()
+            .subscribe(res => this.authorisedUsers = res.payload.data())
     }           
 
-    login (email: string, password: string, returnUrl: string) {
-        this.afAuth.signInWithEmailAndPassword(email, password)
+    // login(email: string, password: string, returnUrl: string) {
+    //     this.afAuth.signInWithEmailAndPassword(email, password)
+    //         .then(res => {
+    //             this.ngZone.run(() => {
+    //                 if (res.user) {
+    //                     this.user = res.user;
+    //                 }
+    //                 this.router.navigate([returnUrl]);
+    //             });                
+    //         }).catch(err => {
+    //             console.error(err);
+    //         });
+    // }
+
+    logout() {
+        this.afAuth.signOut()
             .then(res => {
-                this.ngZone.run(() => {
-                    if (res.user) {
-                        this.user = {
-                            uid: res.user.uid,
-                            displayName: res.user.displayName || '',
-                            email: res.user.email || ''
-                        }
+                this.router.navigate(['admin/login']);
+            });
+    }
+
+    isLoggedInUser(): boolean {
+        const lsUser = localStorage.getItem('user');
+        if (lsUser && !this.user) {
+            this.user = JSON.parse(lsUser);
+        }
+        if (this.user) {
+            return true;
+        } else {
+            return false
+        }
+    }
+
+    signInWithGoogle(returnUrl: string): void {
+        const provider = new firebase.auth.GoogleAuthProvider();
+        provider.addScope('email');
+        provider.addScope('profile');
+
+        this.afAuth.signInWithPopup(provider)
+            .then(res => {
+                if (res.user) {
+                    if (this.authorisedUsers.emails.indexOf(res.user.email) != -1) {
+                        this.user = res.user;
+                        localStorage.setItem('user', JSON.stringify(this.user));
+                        this.router.navigate([returnUrl]);
+                    } else {
+                        this.router.navigate(['admin/not-authorised']);
                     }
-                    this.isLoggedIn = true;
-                    this.router.navigate([returnUrl]);
-                });                
-            }).catch(err => {
+                }
+            })
+            .catch(err => {
                 console.error(err);
             });
     }
 
-    logout () {
-        this.afAuth.signOut()
-            .then(res => {
-                this.isLoggedIn = false;
-                this.router.navigate(['admin/login']);
-            })
+    addAuthorisedUserEmail(emails) {
+        const dbRef = this.afs.doc('authorised-users/users');
+        return dbRef.update(emails);
     }
 
-    isLoggedInUser() {
-        const lsUser = localStorage.getItem('user');
-        if (lsUser || this.isLoggedIn) {
-            return true;
-        } else {
-            return false
-        }        
+    getAuthorisedUserEmails() {
+        return this.afs.doc<[]>('authorised-users/users')
+            .snapshotChanges();  
     }
-
-    getLoggedInUser(): User | null
-    {
-        const lsUser = localStorage.getItem('user');
-        if (lsUser) {
-            const userJson = JSON.parse(lsUser);
-            const user: User = {
-                uid: userJson.uid,
-                displayName: userJson.displayName,
-                email: userJson.email
-            }
-            return user;
-        } else {
-            return this.user;
-        }
-    }
-
-    // signInWithGoogle() {
-    //     const auth = getAuth();
-    //     const provider = new auth.GoogleAuthProvider();
-    //     provider.addScope('profile');
-    //     provider.addScope('email');
-    //     auth().signInWithPopup(provider)
-    //         .then(res => {
-
-    //         })
-    // }
 }

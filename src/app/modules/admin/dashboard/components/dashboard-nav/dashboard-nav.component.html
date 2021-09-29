@@ -11,6 +11,15 @@
         </li>
         <li>
             <a
+                [routerLink]="['/admin/dashboard/authorised-users']"
+                [routerLinkActive]="['active']"
+                [routerLinkActiveOptions]="{exact: true}"
+            >
+                <span>Users</span>
+            </a>
+        </li>
+        <li>
+            <a
                 [routerLink]="['/admin/dashboard/edit-opening-hours']"
                 [routerLinkActive]="['active']"
                 [routerLinkActiveOptions]="{exact: true}"

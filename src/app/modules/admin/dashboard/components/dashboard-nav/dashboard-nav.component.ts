@@ -10,14 +10,14 @@ import { AuthService } from '../../../services/auth.service';
 })
 export class DashboardNavComponent implements OnInit {
     subnavOpen: boolean;
-    user: User | null;
+    user: User;
 
     constructor(
         private authService: AuthService
     ) { }
 
     ngOnInit(): void {
-        this.user = this.authService.getLoggedInUser();
+        this.user = this.authService.user;
     }
 
     logout() {

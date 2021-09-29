@@ -6,16 +6,18 @@ import { AdminRoutingModule } from './admin-routing.module';
 import { AdminComponent } from './admin.component';
 import { LoginComponent } from './login/login.component';
 import { SharedModule } from '../shared/shared.module';
+import { NotAuthorisedComponent } from './not-authorised/not-authorised.component';
 
 @NgModule({
-  declarations: [
-    AdminComponent,
-    LoginComponent
-  ],
-  imports: [
-    CommonModule,
-    AdminRoutingModule,
-    FormsModule
-  ]
+    declarations: [
+        AdminComponent,
+        LoginComponent,
+        NotAuthorisedComponent
+    ],
+    imports: [
+        CommonModule,
+        AdminRoutingModule,
+        FormsModule
+    ]
 })
 export class AdminModule { }

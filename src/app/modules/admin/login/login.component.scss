@@ -1,0 +1,14 @@
+@import '/src/scss/1.Settings/_index';
+
+form {
+    text-align: center;
+}
+.button__icon {
+    background-color: var(--c-white);
+    margin-right: rem(6);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: rem(2);
+    border-radius: 50%;
+}

@@ -1,9 +1,9 @@
 import { Injectable } from '@angular/core';
-import { AngularFirestore } from '@angular/fire/firestore';
+import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { OpeningHours } from '../../shared/models/opening-hours';
 
 @Injectable({
-  providedIn: 'root'
+    providedIn: 'root'
 })
 export class EditOpeningHoursService {
 
