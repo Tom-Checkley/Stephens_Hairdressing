@@ -7,7 +7,7 @@ import { ReviewsComponent } from './modules/client/components/reviews/reviews.co
 const routes: Routes = [
     { path: 'admin', loadChildren: () => import('./modules/admin/admin.module').then(m => m.AdminModule) },
     { path: 'prices', component: PricesComponent },
-    { path: 'reviews', component: ReviewsComponent },
+    // { path: 'reviews', component: ReviewsComponent },
     { path: '', component: HomeComponent },
 ];
 
