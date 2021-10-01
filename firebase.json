@@ -1,6 +1,7 @@
 {
   "hosting": [
     {
+        "target":"stephens-hair",
       "public": "dist/stephens-hair",
       "ignore": [
         "firebase.json",

@@ -5,7 +5,7 @@ body {
 }
 
 main {
-    font-size: $f3;
+    font-size: var(--f3);
 }
 
 h1,

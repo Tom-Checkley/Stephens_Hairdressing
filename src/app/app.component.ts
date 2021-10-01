@@ -8,5 +8,4 @@ import { environment } from 'src/environments/environment';
 })
 export class AppComponent {
   title = 'Stephen Sheppard | Unisex Hairdresser';
-
 }
