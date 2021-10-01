@@ -1,8 +1,32 @@
 rules_version = '2';
 service cloud.firestore {
-  match /databases/{database}/documents {
-    match /{document=**} {
-      allow read, write;
+    match /databases/{database}/documents {
+
+        match /authorised-users/{document} {
+            allow read;
+        allow write: if requestMatchesUID();
+        }
+        
+        match /opening-hours/{document} {
+            allow read;
+            allow write: if requestMatchesUID();
+            allow update: if requestMatchesUID() && resourceMatchesUID();
+            allow delete: if resourceMatchesUID();
+        }
+        
+        match /prices/{document} {
+            allow read;
+            allow write: if requestMatchesUID();
+            allow update: if requestMatchesUID() && resourceMatchesUID();
+            allow delete: if resourceMatchesUID();
+        }    
+        
+        function requestMatchesUID() {
+            return request.auth.uid == request.resource.data.uid;
+        }
+
+        function resourceMatchesUID() {
+            return request.auth.uid == resource.data.uid;
+        }
     }
-  }
 }

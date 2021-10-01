@@ -25,8 +25,7 @@ export class AuthService {
                 localStorage.setItem('user', JSON.stringify(this.user));
             }
         });
-        this.getAuthorisedUserEmails()
-            .subscribe(res => this.authorisedUsers = res.payload.data())
+        
     }           
 
     // login(email: string, password: string, returnUrl: string) {
@@ -63,24 +62,30 @@ export class AuthService {
     }
 
     signInWithGoogle(returnUrl: string): void {
-        const provider = new firebase.auth.GoogleAuthProvider();
-        provider.addScope('email');
-        provider.addScope('profile');
+        
+        this.getAuthorisedUserEmails()
+            .subscribe(res => {
+                this.authorisedUsers = res.payload.data();
+                console.log(this.authorisedUsers);
 
-        this.afAuth.signInWithPopup(provider)
-            .then(res => {
-                if (res.user) {
-                    if (this.authorisedUsers.emails.indexOf(res.user.email) != -1) {
-                        this.user = res.user;
-                        localStorage.setItem('user', JSON.stringify(this.user));
-                        this.router.navigate([returnUrl]);
-                    } else {
-                        this.router.navigate(['admin/not-authorised']);
-                    }
-                }
-            })
-            .catch(err => {
-                console.error(err);
+                const provider = new firebase.auth.GoogleAuthProvider();
+                provider.addScope('email');
+                provider.addScope('profile');
+                this.afAuth.signInWithPopup(provider)
+                    .then(res => {
+                        if (res.user) {
+                            if (this.authorisedUsers.emails.indexOf(res.user.email) != -1) {
+                                this.user = res.user;
+                                localStorage.setItem('user', JSON.stringify(this.user));
+                                this.router.navigate([returnUrl]);
+                            } else {
+                                this.router.navigate(['admin/not-authorised']);
+                            }
+                        }
+                    })
+                    .catch(err => {
+                        console.error(err);
+                    });
             });
     }
 
